@@ -11,6 +11,14 @@ import { LmStudioHandler } from "./providers/lmstudio"
 import { GeminiHandler } from "./providers/gemini"
 import { OpenAiNativeHandler } from "./providers/openai-native"
 import { DeepSeekHandler } from "./providers/deepseek"
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+import { VsCodeLmHandler } from "./providers/vscode-lm"
+=======
+import { GitHubCopilotNativeHandler } from "./providers/github"
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 import { ApiStream } from "./transform/stream"
 
 export interface SingleCompletionHandler {
@@ -45,6 +53,8 @@ export function buildApiHandler(configuration: ApiConfiguration): ApiHandler {
 			return new GeminiHandler(options)
 		case "openai-native":
 			return new OpenAiNativeHandler(options)
+		case "github-copilot-native":
+			return new GitHubCopilotNativeHandler(options)
 		case "deepseek":
 			return new DeepSeekHandler(options)
 		default:

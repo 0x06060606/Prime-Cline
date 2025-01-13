@@ -1,9 +1,9 @@
 {
-  "name": "roo-cline",
-  "displayName": "Roo Cline",
-  "description": "A fork of Cline, an autonomous coding agent, with some added experimental configuration and automation features.",
+  "name": "prime-cline",
+  "displayName": "Prime Cline",
+  "description": "A fork of Roo Cline, an autonomous coding agent, with some added experimental configuration and automation features.",
   "publisher": "RooVeterinaryInc",
-  "version": "3.0.3",
+  "version": "3.0.5",
   "icon": "assets/icons/rocket.png",
   "galleryBanner": {
     "color": "#617A91",
@@ -13,7 +13,7 @@
     "vscode": "^1.84.0"
   },
   "author": {
-    "name": "Roo Vet"
+    "name": "John Bell"
   },
   "repository": {
     "type": "git",

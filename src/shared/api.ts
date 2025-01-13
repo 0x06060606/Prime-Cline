@@ -9,6 +9,7 @@ export type ApiProvider =
 	| "lmstudio"
 	| "gemini"
 	| "openai-native"
+	| "github-copilot-native"
 	| "deepseek"
 
 export interface ApiHandlerOptions {
@@ -545,3 +546,101 @@ export const deepSeekModels = {
 // https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#api-specs
 export const azureOpenAiDefaultApiVersion = "2024-08-01-preview"
 
+// GitHub Copilot
+// https://code.visualstudio.com/api/extension-guides/language-model#related-content
+export type GithHubCopilotNativeModelId = 
+    | "copilot-default"
+    | "gpt-3.5-turbo"
+    | "gpt-4"
+    | "gpt-4o"
+    | "o1-preview"
+    | "o1-mini"
+    | "gpt-4o-mini"
+    | "gpt-4-0125-preview"
+    | "claude-3-5-sonnet"
+
+export const githHubCopilotNativeDefaultModelId: GithHubCopilotNativeModelId = "copilot-default"
+
+export const githHubCopilotNativeModels = {
+    "copilot-default": {
+        maxTokens: 2000,
+        contextWindow: 8000,
+        supportsImages: false,
+        supportsComputerUse: false,
+        supportsPromptCache: false,
+        inputPrice: 0.0,
+        outputPrice: 0.0
+    },
+    "gpt-3.5-turbo": {
+        maxTokens: 12114,
+        contextWindow: 12114,
+        supportsImages: false,
+        supportsComputerUse: false,
+        supportsPromptCache: false,
+        inputPrice: 0.0,
+        outputPrice: 0.0
+    },
+    "gpt-4": {
+        maxTokens: 28501,
+        contextWindow: 28501,
+        supportsImages: false,
+        supportsComputerUse: false,
+        supportsPromptCache: false,
+        inputPrice: 0.0,
+        outputPrice: 0.0
+    },
+    "gpt-4o": {
+        maxTokens: 123734,
+        contextWindow: 123734,
+        supportsImages: false,
+        supportsComputerUse: false,
+        supportsPromptCache: false,
+        inputPrice: 0.0,
+        outputPrice: 0.0
+    },
+    "o1-preview": {
+        maxTokens: 19827,
+        contextWindow: 19827,
+        supportsImages: false,
+        supportsComputerUse: false,
+        supportsPromptCache: false,
+        inputPrice: 0.0,
+        outputPrice: 0.0
+    },
+    "o1-mini": {
+        maxTokens: 19827,
+        contextWindow: 19827,
+        supportsImages: false,
+        supportsComputerUse: false,
+        supportsPromptCache: false,
+        inputPrice: 0.0,
+        outputPrice: 0.0
+    },
+    "gpt-4o-mini": {
+        maxTokens: 12115,
+        contextWindow: 12115,
+        supportsImages: false,
+        supportsComputerUse: false,
+        supportsPromptCache: false,
+        inputPrice: 0.0,
+        outputPrice: 0.0
+    },
+    "gpt-4-0125-preview": {
+        maxTokens: 63826,
+        contextWindow: 63826,
+        supportsImages: false,
+        supportsComputerUse: false,
+        supportsPromptCache: false,
+        inputPrice: 0.0,
+        outputPrice: 0.0
+    },
+    "claude-3-5-sonnet": {
+        maxTokens: 194827,
+        contextWindow: 194827,
+        supportsImages: false,
+        supportsComputerUse: false,
+        supportsPromptCache: false,
+        inputPrice: 0.0,
+        outputPrice: 0.0
+    }
+} as const satisfies Record<GithHubCopilotNativeModelId, ModelInfo>

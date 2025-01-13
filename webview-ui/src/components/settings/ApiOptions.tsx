@@ -30,6 +30,8 @@ import {
 	openRouterDefaultModelInfo,
 	vertexDefaultModelId,
 	vertexModels,
+	githHubCopilotNativeModels,
+	githHubCopilotNativeDefaultModelId,
 } from "../../../../src/shared/api"
 import { ExtensionMessage } from "../../../../src/shared/ExtensionMessage"
 import { useExtensionState } from "../../context/ExtensionStateContext"
@@ -144,6 +146,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 					<VSCodeOption value="glama">Glama</VSCodeOption>
 					<VSCodeOption value="lmstudio">LM Studio</VSCodeOption>
 					<VSCodeOption value="ollama">Ollama</VSCodeOption>
+					<VSCodeOption value="github-copilot-native">GithHub Copilot</VSCodeOption>
 				</VSCodeDropdown>
 			</div>
 
@@ -714,6 +717,7 @@ const ApiOptions = ({ apiErrorMessage, modelIdErrorMessage }: ApiOptionsProps) =
 							{selectedProvider === "gemini" && createDropdown(geminiModels)}
 							{selectedProvider === "openai-native" && createDropdown(openAiNativeModels)}
 							{selectedProvider === "deepseek" && createDropdown(deepSeekModels)}
+							{selectedProvider === "github-copilot-native" && createDropdown(githHubCopilotNativeModels)}
 						</div>
 
 						<ModelInfoView
@@ -932,6 +936,26 @@ export function normalizeApiConfiguration(apiConfiguration?: ApiConfiguration) {
 				selectedModelId: apiConfiguration?.lmStudioModelId || "",
 				selectedModelInfo: openAiModelInfoSaneDefaults,
 			}
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+		case "vscode-lm":
+			return {
+				selectedProvider: provider,
+				selectedModelId: apiConfiguration?.vsCodeLmModelSelector ?
+					`${apiConfiguration.vsCodeLmModelSelector.vendor}/${apiConfiguration.vsCodeLmModelSelector.family}` :
+					"",
+				selectedModelInfo: {
+					...openAiModelInfoSaneDefaults,
+					supportsImages: false, // VSCode LM API currently doesn't support images
+					supportsComputerUse: true // All VSCode LM models support tools
+				},
+			}
+=======
+		case "github-copilot-native":
+			return getProviderData(githHubCopilotNativeModels, githHubCopilotNativeDefaultModelId)
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 		default:
 			return getProviderData(anthropicModels, anthropicDefaultModelId)
 	}
